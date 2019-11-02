@@ -6,7 +6,60 @@
         xmlns:local="clr-namespace:ProductDesktopApp"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="6*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Button 
+            x:Name="addButton"
+            Content="Add"
+            Grid.Column="1"
+            Style="{StaticResource saveButtonStyle}" Click="addButton_Click"></Button>
+
+        <Border BorderBrush="#026AFE" BorderThickness="1" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <Grid Name="gvMain" Margin="1,1,1,1" Width="600" HorizontalAlignment="Center" Background="LightSteelBlue">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                    <ColumnDefinition Width="50"></ColumnDefinition>
+                    <ColumnDefinition Width="100"></ColumnDefinition>
+                    <ColumnDefinition Width="350"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="25"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Border BorderBrush="#026AFE" BorderThickness="0,0,1,1" Grid.Column="0" Grid.Row="0" >
+                    <TextBlock Background="Cyan" Text="Name" TextAlignment="Center"></TextBlock>
+                </Border>
+                <Border BorderBrush="#026AFE" BorderThickness="0,0,1,1" Grid.Column="1" Grid.Row="0" >
+                    <TextBlock Background="Cyan" Text="Price" TextAlignment="Center"></TextBlock>
+                </Border>
+                <Border BorderBrush="#026AFE" BorderThickness="0,0,1,1" Grid.Column="2" Grid.Row="0" >
+                    <TextBlock Background="Cyan" Text="Category" TextAlignment="Center"></TextBlock>
+                </Border>
+                <Border BorderBrush="#026AFE" BorderThickness="0,0,1,1" Grid.Column="3" Grid.Row="0" >
+                    <TextBlock Background="Cyan" Text="Description" TextAlignment="Center"></TextBlock>
+                </Border>
+                <Grid Name="gvProducts" Grid.ColumnSpan="3" Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Name="ProductID" Width="100"></ColumnDefinition>
+                        <ColumnDefinition Name="ProductName" Width="50"></ColumnDefinition>
+                        <ColumnDefinition Name="ProductPrice" Width="100"></ColumnDefinition>
+                        <ColumnDefinition Name="ProductCategory" Width="350"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"></RowDefinition>
+                    </Grid.RowDefinitions>
+                </Grid>
+            </Grid>
+        </Border>
+
     </Grid>
 </Window>

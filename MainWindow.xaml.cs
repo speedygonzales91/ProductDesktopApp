@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Xml.Linq;
 
 namespace ProductDesktopApp
 {
@@ -23,6 +24,13 @@ namespace ProductDesktopApp
         public MainWindow()
         {
             InitializeComponent();
+
+        }
+
+        private void addButton_Click(object sender, RoutedEventArgs e)
+        {
+            NewProductWindow newProductWindow = new NewProductWindow();
+            newProductWindow.ShowDialog();
         }
     }
 }
