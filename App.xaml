@@ -4,6 +4,29 @@
              xmlns:local="clr-namespace:ProductDesktopApp"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <SolidColorBrush x:Key="savebuttonBackgroundColor" Color="LightGreen"></SolidColorBrush>
+        <SolidColorBrush x:Key="deleteBackgroundColor" Color="IndianRed"></SolidColorBrush>
+
+        <Style TargetType="Button" x:Key="saveButtonStyle">
+            <Setter Property="Background" Value="{StaticResource savebuttonBackgroundColor}"></Setter>
+            <Setter Property="FontSize" Value="15"></Setter>
+            <Setter Property="Width" Value="60"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Right"></Setter>
+            <Setter Property="Margin" Value="0,0,0,5"></Setter>
+            <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+        </Style>
+        
+        <Style TargetType="Button" x:Key="deleteButtonStyle">
+            <Setter Property="Background" Value="{StaticResource deleteBackgroundColor}"></Setter>
+            <Setter Property="FontSize" Value="15"></Setter>
+            <Setter Property="Width" Value="60"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Right"></Setter>
+            <Setter Property="Margin" Value="0,0,0,5"></Setter>
+        </Style>
+
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="15"></Setter>
+            <Setter Property="FontWeight" Value="Bold"></Setter>
+        </Style>
     </Application.Resources>
 </Application>
