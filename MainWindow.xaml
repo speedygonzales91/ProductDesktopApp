@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProductDesktopApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="500">
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -22,44 +22,73 @@
             Content="Add"
             Grid.Column="1"
             Style="{StaticResource saveButtonStyle}" Click="addButton_Click"></Button>
+        <ListView x:Name="productsListView">
+            <ListView.View>
+                <GridView AllowsColumnReorder="true"
+                 ColumnHeaderToolTip="Employee Information">
+                    <GridViewColumn 
+                        Header="" 
+                        Width="30">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <CheckBox IsChecked="{Binding IsSelected}">
+                                </CheckBox>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn 
+                        DisplayMemberBinding="{Binding Name}"
+                        Header="Name" 
+                        Width="50">
+                    </GridViewColumn>
+                    <GridViewColumn 
+                        DisplayMemberBinding="{Binding Price}"
+                        Header="Price" Width="50">
+                    </GridViewColumn>
+                    <GridViewColumn 
+                        DisplayMemberBinding="{Binding CategoryId}"
+                        Header="Category" Width="100">
+                    </GridViewColumn>
+                    <GridViewColumn 
+                        DisplayMemberBinding="{Binding Description}"
+                        Header="Description" Width="150">
+                    </GridViewColumn>
 
-        <Border BorderBrush="#026AFE" BorderThickness="1" HorizontalAlignment="Center" VerticalAlignment="Top">
-            <Grid Name="gvMain" Margin="1,1,1,1" Width="600" HorizontalAlignment="Center" Background="LightSteelBlue">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100"></ColumnDefinition>
-                    <ColumnDefinition Width="50"></ColumnDefinition>
-                    <ColumnDefinition Width="100"></ColumnDefinition>
-                    <ColumnDefinition Width="350"></ColumnDefinition>
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="25"></RowDefinition>
-                    <RowDefinition Height="Auto"></RowDefinition>
-                </Grid.RowDefinitions>
-                <Border BorderBrush="#026AFE" BorderThickness="0,0,1,1" Grid.Column="0" Grid.Row="0" >
-                    <TextBlock Background="Cyan" Text="Name" TextAlignment="Center"></TextBlock>
-                </Border>
-                <Border BorderBrush="#026AFE" BorderThickness="0,0,1,1" Grid.Column="1" Grid.Row="0" >
-                    <TextBlock Background="Cyan" Text="Price" TextAlignment="Center"></TextBlock>
-                </Border>
-                <Border BorderBrush="#026AFE" BorderThickness="0,0,1,1" Grid.Column="2" Grid.Row="0" >
-                    <TextBlock Background="Cyan" Text="Category" TextAlignment="Center"></TextBlock>
-                </Border>
-                <Border BorderBrush="#026AFE" BorderThickness="0,0,1,1" Grid.Column="3" Grid.Row="0" >
-                    <TextBlock Background="Cyan" Text="Description" TextAlignment="Center"></TextBlock>
-                </Border>
-                <Grid Name="gvProducts" Grid.ColumnSpan="3" Grid.Row="1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Name="ProductID" Width="100"></ColumnDefinition>
-                        <ColumnDefinition Name="ProductName" Width="50"></ColumnDefinition>
-                        <ColumnDefinition Name="ProductPrice" Width="100"></ColumnDefinition>
-                        <ColumnDefinition Name="ProductCategory" Width="350"></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"></RowDefinition>
-                    </Grid.RowDefinitions>
-                </Grid>
-            </Grid>
-        </Border>
-
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <!--<ListView x:Name="productsListView"
+                  Margin="5"
+                  Height="380">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="*"></ColumnDefinition>
+                            <ColumnDefinition Width="3*"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="productNameTextBox"
+                                   Grid.Column="0"
+                                   Text="{Binding Name}"></TextBlock>
+                        <TextBlock x:Name="productpriceTextBox"
+                                   Grid.Column="1"
+                                   Text="{Binding Price}"></TextBlock>
+                        <TextBlock x:Name="productCategoryTextBox"
+                                   Grid.Column="2"
+                                   Text="{Binding CategoryId}"></TextBlock>
+                        <TextBlock x:Name="productDescriptionTextBox"
+                                   Grid.Column="3"
+                                   Text="{Binding Description}"></TextBlock>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>-->
     </Grid>
 </Window>

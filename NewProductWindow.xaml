@@ -36,7 +36,7 @@
             x:Name="saveButton"
             Content="Save"
             Grid.Column="1"
-            Style="{StaticResource saveButtonStyle}"></Button>
+            Style="{StaticResource saveButtonStyle}" Click="saveButton_Click"></Button>
         <Label
             x:Name="priceLabel"
             Content="Price"
@@ -57,10 +57,19 @@
             Content="Category"
             Grid.Row="4"
             Grid.Column="0"></Label>
-        <TextBox
-            x:Name="categoryTextBox"
-            Grid.Row="5">
-        </TextBox>
+        <ComboBox Name="categoryComboBox"
+                  Grid.Row="5"
+                  DisplayMemberPath="Name">
+        </ComboBox>
+
+        <Button 
+            x:Name="addCategoryButton"
+            Content="Add Category"
+            Grid.Column="2"
+            Grid.Row="2"
+            Style="{StaticResource saveButtonStyle}"
+            Click="addCategoryButton_Click"
+            FontSize="8"></Button>
         <Label
             x:Name="descriptionLabel"
             Content="Description"

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProductDesktopApp.Models;
+using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,16 +23,36 @@ namespace ProductDesktopApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        private List<Product> productList;
         public MainWindow()
         {
             InitializeComponent();
+            productList = new List<Product>();
+
+            ReadDatabase();
 
         }
+
 
         private void addButton_Click(object sender, RoutedEventArgs e)
         {
             NewProductWindow newProductWindow = new NewProductWindow();
             newProductWindow.ShowDialog();
+
+            ReadDatabase();
+        }
+
+        void ReadDatabase()
+        {
+            using (SQLiteConnection connection = new SQLiteConnection(App.dbPath))
+            {
+                connection.CreateTable<Category>();
+                connection.CreateTable<Product>();
+
+                productList=connection.Table<Product>().ToList();
+            }
+
+            productsListView.ItemsSource = productList;
         }
     }
 }
