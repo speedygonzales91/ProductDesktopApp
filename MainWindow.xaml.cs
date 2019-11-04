@@ -54,5 +54,26 @@ namespace ProductDesktopApp
 
             productsListView.ItemsSource = productList;
         }
+
+        private void deleteButton_Click(object sender, RoutedEventArgs e)
+        {
+            var productsToDelete = productList.Where(p => p.IsSelected).ToList();
+
+            if (productsToDelete != null)
+            {
+                using (SQLiteConnection connection = new SQLiteConnection(App.dbPath))
+                {
+                    connection.CreateTable<Product>();
+
+                    foreach (var product in productsToDelete)
+                    {
+                        connection.Delete(product);
+                    }
+                }
+            }
+
+            ReadDatabase();
+
+        }
     }
 }

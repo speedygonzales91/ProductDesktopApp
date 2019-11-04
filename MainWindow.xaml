@@ -21,7 +21,15 @@
             x:Name="addButton"
             Content="Add"
             Grid.Column="1"
-            Style="{StaticResource saveButtonStyle}" Click="addButton_Click"></Button>
+            Style="{StaticResource saveButtonStyle}"
+            Click="addButton_Click"></Button>
+        <Button 
+            x:Name="deleteButton"
+            Content="Delete"
+            Grid.Row="1"
+            Grid.Column="1"
+            Style="{StaticResource deleteButtonStyle}"
+            Click="deleteButton_Click"></Button>
         <ListView x:Name="productsListView">
             <ListView.View>
                 <GridView AllowsColumnReorder="true"
